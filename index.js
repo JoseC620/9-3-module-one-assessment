@@ -185,7 +185,20 @@ function filterByGenre(movies,genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear(movies) {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  let arr = []
+    if(movies.length === 0){
+      return arr
+    }
+  for (let i = 0; i < movies.length; i++){
+    let released = movies[i].released
+    let last = released.split(' ').pop();
+  if(last <= year){
+    arr.push(movies[i])
+  }
+}
+  return arr
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -198,7 +211,23 @@ function getAllMoviesReleasedAtOrBeforeYear(movies) {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {}
+function getBiggestBoxOfficeMovie(movies) {
+  if (movies.length === 0){
+    return null
+  }
+  let arr = []
+  for (let i = 0; i < movies.length; i++){
+    if(movies[i].boxOffice){
+      arr.push(movies[i].boxOffice.substring(1).replaceAll(',', ''))
+}
+  }
+  let highest = arr.reduce((a, b) => Math.max(a, b), -Infinity)
+  for (let i = 0; i < movies.length; i++){
+    if(movies[i].boxOffice.substring(1).replaceAll(',', '') === highest){
+     return movies[i].title
+    }
+  }
+}
 
 // Do not change anything below this line.
 module.exports = {
