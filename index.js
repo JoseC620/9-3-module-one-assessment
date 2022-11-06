@@ -70,7 +70,20 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  let count = 0
+  let avg = 0
+  for (let i = 0; i < movies.length; i++){
+    if (movies[i].imdbRating > 0){
+      avg += Number(movies[i].imdbRating)
+      count ++
+    }
+  }
+  if (avg > 0){
+    avg = avg/count
+  }
+  return avg
+}
 
 /**
  * countByRating()
