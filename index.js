@@ -151,8 +151,16 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre(movies) {
-  
+function filterByGenre(movies,genre) {
+  let arr = []
+  for (let i = 0; i < movies.length; i++){
+    let gen1 = movies[i].genre.toLowerCase()
+    let gen2 = genre.toLowerCase()
+    if (gen1.includes(gen2)){
+      arr.push(movies[i])
+  }
+}
+  return arr
 }
 
 /**
