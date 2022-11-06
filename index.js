@@ -52,8 +52,8 @@ function getAllMovieTitles(movies) {
 function getHighestMetascore(movies) {
   let highest = 0
   for (let i = 0; i < movies.length; i++){
-  if (movies[i].metascore > 0){
-  highest = Math.max(...movies.map(movies => movies.metascore))
+  if (movies[i].metascore > highest){
+  highest = Number(movies[i].metascore)
   }
 }
   return highest
@@ -223,7 +223,7 @@ function getBiggestBoxOfficeMovie(movies) {
   }
   let highest = arr.reduce((a, b) => Math.max(a, b), -Infinity)
   for (let i = 0; i < movies.length; i++){
-    if(movies[i].boxOffice.substring(1).replaceAll(',', '') === highest){
+    if(movies[i].boxOffice.substring(1).replaceAll(',', '') == highest){
      return movies[i].title
     }
   }
