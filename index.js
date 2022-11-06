@@ -121,7 +121,15 @@ function countByRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let found = movies.find(movies => movies.imdbID === id)
+  if (!movies){
+    return null
+  } else if (!found){
+    return null
+  }
+ return found
+}
 
 /**
  * filterByGenre()
@@ -143,7 +151,9 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies) {
+  
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -167,7 +177,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies) {}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -180,7 +190,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {}
 
 // Do not change anything below this line.
 module.exports = {
